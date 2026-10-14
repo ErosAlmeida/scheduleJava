@@ -2,13 +2,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Contato {
-    public Contato(String nome, String telefone) {
-        this.nome = nome;
-        this.telefone = telefone;
+    public String getNome() {
+        return nome;
     }
 
-    private String nome;
-    private String telefone;
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
     public String getTelefone() {
         return telefone;
@@ -18,36 +18,37 @@ public class Contato {
         this.telefone = telefone;
     }
 
-    public String getNome() {
-        return nome;
+    private String nome;
+
+    public Contato(String nome, String telefone) {
+        this.nome = nome;
+        this.telefone = telefone;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+    private String telefone;
 
     public void validarDados() throws AgendaException {
-        validarNome();
+        validarDados();
         validarTelefone();
     }
 
-
-    private void validarNome() throws AgendaException {
-        if (nome == null || nome.trim().length() == 0) {
-            throw new AgendaException("O nome do contato não pode ser vazio");
+    private void validarNome() throws AgendaException{
+        if(nome == null || nome.trim().length() == 0){
+            throw new AgendaException("O nome da agenda não é valido");
         }
     }
 
     private void validarTelefone() throws AgendaException {
-        // Utiliza uma expressão regular para fazer a validação
         String regex = "\\d\\d\\d\\d-\\d\\d\\d\\d";
         Pattern p = Pattern.compile(regex);
-        Matcher m = p.matcher(telefone);
+        Matcher m =  p.matcher(telefone);
 
-        if (!m.matches()) {
+        if(!m.matches()){
             throw new AgendaException("O telefone " + telefone + " não é válido");
         }
     }
+
+
     public String toString() {
         return nome + " -> " + telefone;
     }
