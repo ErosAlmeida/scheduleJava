@@ -3,20 +3,10 @@ import java.io.IOException;
 import java.util.List;
 
 public class Aplicacao {
-    /**
-     * Menu de opções
-     */
-    private Menu menu;
 
-    /**
-     * Agenda de contatos
-     */
+    private Menu menu;
     private Agenda agenda;
 
-    /**
-     * Inicia a aplicação
-     * @throws IOException
-     */
     public void iniciar() throws IOException {
         menu = new Menu();
         agenda = new Agenda();
@@ -58,11 +48,6 @@ public class Aplicacao {
         System.out.println("Fim da aplicação!");
     }
 
-    /**
-     * Opção de inserção
-     * @throws AgendaException
-     * @throws IOException
-     */
     private void inserir() throws AgendaException, IOException {
         // Solicita os dados
         System.out.print("Nome: ");
@@ -77,12 +62,6 @@ public class Aplicacao {
         System.out.println("Contato inserido!");
         System.out.println();
     }
-
-    /**
-     * Opção de alteração
-     * @throws AgendaException
-     * @throws IOException
-     */
     private void alterar() throws AgendaException, IOException {
         // Solicita os dados
         System.out.print("Nome: ");
@@ -118,10 +97,6 @@ public class Aplicacao {
         System.out.println();
     }
 
-    /**
-     * Opção de listagem por letra
-     * @throws AgendaException
-     */
     private void listarPorLetra() throws AgendaException {
         // Solicita a letra
         System.out.print("Letra: ");
@@ -143,10 +118,7 @@ public class Aplicacao {
         System.out.println();
     }
 
-    /**
-     * Opção de procura
-     * @throws AgendaException
-     */
+
     private void procurar() throws AgendaException {
         // Solicita a parte do nome para a busca
         System.out.print("Parte do nome: ");
