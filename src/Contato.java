@@ -27,24 +27,27 @@ public class Contato {
         this.nome = nome;
     }
 
-    public void validarDados() throws AgendaException{
-        validarDados();
+    public void validarDados() throws AgendaException {
+        validarNome();
         validarTelefone();
     }
 
-    private void validarNome() throws AgendaException{
-        if(nome == null || nome.trim().length() == 0){
+
+    private void validarNome() throws AgendaException {
+        if (nome == null || nome.trim().length() == 0) {
             throw new AgendaException("O nome do contato não pode ser vazio");
         }
     }
 
-    private void validarTelefone() throws AgendaException{
+
+    private void validarTelefone() throws AgendaException {
+        // Utiliza uma expressão regular para fazer a validação
         String regex = "\\d\\d\\d\\d-\\d\\d\\d\\d";
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(telefone);
 
-        if (!m.matches()){
-            throw new AgendaException("O telefone" + telefone + "não é validado");
+        if (!m.matches()) {
+            throw new AgendaException("O telefone " + telefone + " não é válido");
         }
     }
     public String toString() {
