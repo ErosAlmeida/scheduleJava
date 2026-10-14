@@ -18,38 +18,40 @@ public class Contato {
         this.telefone = telefone;
     }
 
-    private String nome;
-
     public Contato(String nome, String telefone) {
         this.nome = nome;
         this.telefone = telefone;
     }
 
+    private String nome;
     private String telefone;
 
     public void validarDados() throws AgendaException {
-        validarDados();
+        validarNome();
         validarTelefone();
     }
 
     private void validarNome() throws AgendaException{
         if(nome == null || nome.trim().length() == 0){
-            throw new AgendaException("O nome da agenda não é valido");
+            throw new AgendaException("O nome não é valido");
         }
     }
 
-    private void validarTelefone() throws AgendaException {
+
+    private void validarTelefone() throws AgendaException{
         String regex = "\\d\\d\\d\\d-\\d\\d\\d\\d";
         Pattern p = Pattern.compile(regex);
-        Matcher m =  p.matcher(telefone);
+        Matcher m = p.matcher(telefone);
 
-        if(!m.matches()){
-            throw new AgendaException("O telefone " + telefone + " não é válido");
+        if (!m.matches()){
+            throw new AgendaException("O telefone" + telefone + "não é valido");
+        }
+        if (telefone == null) {
+            throw new AgendaException("O telefone não pode ser nulo");
         }
     }
 
-
-    public String toString() {
-        return nome + " -> " + telefone;
+    public String toString(){
+        return nome + "=>" + telefone;
     }
 }
