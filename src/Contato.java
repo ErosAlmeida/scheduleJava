@@ -10,7 +10,6 @@ public class Contato {
     private String nome;
     private String telefone;
 
-
     public String getTelefone() {
         return telefone;
     }
@@ -38,7 +37,6 @@ public class Contato {
             throw new AgendaException("O nome do contato não pode ser vazio");
         }
     }
-
 
     private void validarTelefone() throws AgendaException {
         // Utiliza uma expressão regular para fazer a validação
